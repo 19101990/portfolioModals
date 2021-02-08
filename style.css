@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto+Condensed:wght@300;400&display=swap');
+
+/* 
+font-family: 'Black Ops One', cursive;
+font-family: 'Roboto Condensed', sans-serif;
+*/
+
+* {
+  box-sizing: border-box; /* when we add any border or padding to an element it won't affect it's width */
+}
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: black;
+}
+
+.web-portfolio {
+  position: relative;
+}
+
+figure {
+  margin: 0;
+}
+
+.portfolio-items {
+  display: flex;
+  width: 100%;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.portfolio-item {
+  position: relative;
+  width: 50%;
+  height: 50vh;
+}
+
+.portfolio-item img {
+  width: 100%;
+  max-height: 50vh;
+  min-height: 50vh;
+  object-fit: cover;
+}
+
+@media (max-width: 860px) {
+  .portfolio-item {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .portfolio-item img {
+    width: 100%;
+    max-height: 50vh;
+    min-height: 50vh;
+    object-fit: cover;
+  }
+}
+
+.portfolio-item figcaption {
+  opacity: 0;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease-in-out;
+}
+
+.portfolio-item:hover figcaption {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.548);
+}
+
+.portfolio-item .item-title {
+  font-family: 'Black Ops One', cursive;
+  font-size: 2.5em;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+}
+
+.portfolio-item .item-description {
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.portfolio-item .item-link {
+  color: #fff;
+  text-decoration: none;
+  margin: 1em 0;
+  padding: 0.5em 2em;
+  border: 1px solid #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 1s ease;
+}
+
+.portfolio-item .item-link:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+/* STYLE MODALS */
+
+.portfolio-modal {
+  position: fixed;
+  color: #000;
+  background-color: #fff;
+  z-index: 100;
+  top: 4em;
+  bottom: 4em;
+  left: 6em;
+  right: 6em;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(59, 59, 59) rgb(0, 0, 0);
+  box-shadow: 0 0 0 8em rgba(0, 0, 0, 0.911);
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.7s linear;
+}
+
+/* OPTIONAL CUSTOM BG COLORS FOR MODALS */
+
+/* .portfolio-modal-1 {
+  box-shadow: 0 0 0 8em rgba(0, 141, 197, 0.836);
+}
+
+.portfolio-modal-2 {
+  box-shadow: 0 0 0 8em rgba(0, 197, 10, 0.836);
+}
+
+.portfolio-modal-3 {
+  box-shadow: 0 0 0 8em rgba(255, 17, 0, 0.836);
+}
+
+.portfolio-modal-4 {
+  box-shadow: 0 0 0 8em rgba(255, 231, 12, 0.836);
+} */
+
+.portfolio-modal.show {
+  /* display: block; */
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.7s linear;
+}
+
+@media (max-width: 800px) {
+  .portfolio-modal {
+    top: 4em;
+    bottom: 4em;
+    left: 3em;
+    right: 3em;
+    overflow-y: scroll;
+    box-shadow: 0 0 0 5em rgba(0, 0, 0, 0.911);
+  }
+}
+
+@media (min-width: 1100px) {
+  .portfolio-modal {
+    position: fixed;
+    color: #000;
+    background-color: #fff;
+    z-index: 100;
+    top: 4em;
+    bottom: 4em;
+    left: 15em;
+    right: 15em;
+    overflow-y: scroll;
+    box-shadow: 0 0 0 16em rgba(0, 0, 0, 0.911);
+  }
+
+  /* OPTIONAL CUSTOM BG COLORS FOR MODALS */
+
+  /* .portfolio-modal-1 {
+    box-shadow: 0 0 0 16em rgba(0, 141, 197, 0.836);
+  }
+
+  .portfolio-modal-2 {
+    box-shadow: 0 0 0 16em rgba(255, 21, 21, 0.836);
+  }
+
+  .portfolio-modal-3 {
+    box-shadow: 0 0 0 16em rgba(183, 0, 255, 0.836);
+  }
+
+  .portfolio-modal-4 {
+    box-shadow: 0 0 0 16em rgba(255, 129, 12, 0.836);
+  } */
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(236, 236, 236);
+}
+
+.portfolio-modal img {
+  max-width: 100%;
+}
+
+.modal-title-container {
+  text-align: left;
+  color: #fff;
+  padding: 6em 0;
+  margin-bottom: 3em;
+  border: 1px solid #fff;
+}
+
+.modal-title-container-1:nth-of-type(1) {
+  background-image: url('https://images.unsplash.com/photo-1573752435162-382e534fd7db?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-title-container-2:nth-of-type(1) {
+  background-image: url('https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-title-container-3:nth-of-type(1) {
+  background-image: url('https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1423&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-title-container-4:nth-of-type(1) {
+  background-image: url('https://images.unsplash.com/photo-1527698952067-61fc35796fcd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1780&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.modal-title-bg {
+  height: 100%;
+  width: 70%;
+  margin: 0 auto;
+  padding: 3em 2em 4em 2em;
+  transform: rotate(-5deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.836);
+}
+
+/* OPTIONAL CUSTOM COLORS FOR MODALS */
+
+/* .modal-title-bg-1 {
+  background: rgba(0, 141, 197, 0.836);
+}
+
+.modal-title-bg-2 {
+  background: rgba(255, 21, 21, 0.836);
+}
+
+.modal-title-bg-3 {
+  background: rgba(183, 0, 255, 0.836);
+}
+
+.modal-title-bg-4 {
+  background: rgba(255, 129, 12, 0.836);
+} */
+
+.modal-title {
+  font-size: 2.5em;
+  line-height: 0.9;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid #fff;
+}
+
+.modal-subtitle {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.modal-content {
+  width: 85%;
+  margin: 0 auto;
+  font-size: 1.4em;
+  font-weight: 300;
+  padding-bottom: 3em;
+  text-align: left;
+}
+
+@media (min-width: 40em) {
+  .portfolio-pull-left {
+    width: 70%;
+    float: left;
+    margin-right: 1em;
+  }
+  .portfolio-pull-right {
+    width: 70%;
+    float: right;
+    margin-left: 1em;
+  }
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.5em;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.4s ease;
+}
+
+.modal-close:hover {
+  opacity: 0.7;
+}
